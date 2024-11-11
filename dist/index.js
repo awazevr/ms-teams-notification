@@ -82,7 +82,7 @@ function run() {
             const useAdaptiveCard = core.getInput('adaptive-card-message') === 'true';
             let messageCard;
             if (useAdaptiveCard) {
-                messageCard = yield (0, message_card_1.createAdaptiveCard)(notificationSummary, commit, runId, repoUrl);
+                messageCard = yield (0, message_card_1.createAdaptiveCard)(notificationSummary, subMessage, commit, runId, repoUrl);
             }
             else {
                 messageCard = yield (0, message_card_1.createMessageCard)(notificationSummary, notificationColor, commit, author, runNum, runId, repoName, sha, repoUrl, timestamp, subMessage);
@@ -154,7 +154,7 @@ function createMessageCard(notificationSummary, notificationColor, commit, autho
     return messageCard;
 }
 exports.createMessageCard = createMessageCard;
-function createAdaptiveCard(notificationSummary, commit, runId, repoUrl) {
+function createAdaptiveCard(summary, description, commit, runId, repoUrl) {
     return {
         type: 'message',
         attachments: [
@@ -172,9 +172,15 @@ function createAdaptiveCard(notificationSummary, commit, runId, repoUrl) {
                                     type: 'TextBlock',
                                     size: 'Large',
                                     weight: 'Bolder',
-                                    text: notificationSummary,
+                                    text: summary,
                                     color: 'Attention',
                                     horizontalAlignment: 'Left'
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": description,
+                                    "color": "Attention",
+                                    "horizontalAlignment": "Left"
                                 }
                             ]
                         }
