@@ -57,7 +57,8 @@ export function createMessageCard(
 }
 
 export function createAdaptiveCard(
-  notificationSummary: string,
+  summary: string,
+  description: string,
   commit: any,
   runId: string,
   repoUrl: string
@@ -79,7 +80,13 @@ export function createAdaptiveCard(
                   type: 'TextBlock',
                   size: 'Large',
                   weight: 'Bolder',
-                  text: notificationSummary,
+                  text: summary,
+                  color: 'Attention',
+                  horizontalAlignment: 'Left'
+                },
+                {
+                  type: 'TextBlock',
+                  text: description,
                   color: 'Attention',
                   horizontalAlignment: 'Left'
                 }

@@ -53,6 +53,7 @@ async function run(): Promise<void> {
     if (useAdaptiveCard) {
       messageCard = await createAdaptiveCard(
         notificationSummary,
+        subMessage,
         commit,
         runId,
         repoUrl
