@@ -173,14 +173,13 @@ function createAdaptiveCard(summary, description, commit, runId, repoUrl) {
                                     size: 'Large',
                                     weight: 'Bolder',
                                     text: summary,
-                                    color: 'Attention',
                                     horizontalAlignment: 'Left'
                                 },
                                 {
-                                    "type": "TextBlock",
-                                    "text": description,
-                                    "color": "Attention",
-                                    "horizontalAlignment": "Left"
+                                    type: 'TextBlock',
+                                    text: description,
+                                    wrap: true,
+                                    horizontalAlignment: 'Left'
                                 }
                             ]
                         }
