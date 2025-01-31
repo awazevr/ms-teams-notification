@@ -81,13 +81,12 @@ export function createAdaptiveCard(
                   size: 'Large',
                   weight: 'Bolder',
                   text: summary,
-                  color: 'Attention',
                   horizontalAlignment: 'Left'
                 },
                 {
                   type: 'TextBlock',
                   text: description,
-                  color: 'Attention',
+                  wrap: true,
                   horizontalAlignment: 'Left'
                 }
               ]
