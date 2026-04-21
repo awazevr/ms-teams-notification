@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       # this is the new step using the ms-teams-notification action
       - name: Notify dedicated teams channel
-        uses: jdcargile/ms-teams-notification@v1.3
+        uses: awazevr/ms-teams-notification@vX.X
         with:
           github-token: ${{ github.token }} # this will use the runner's token.
           ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
@@ -53,3 +53,45 @@ Emoji support isn't great for incoming webhooks on Microsoft Teams yet. You can 
 <p align="center">
 <img src="notification-emoji-screenshot.png">
 </p>
+
+## Development
+
+### Prerequisites
+- Node.js 24
+- npm
+
+### Building
+
+Install dependencies and produce the bundled `dist/index.js` that GitHub Actions executes:
+
+```bash
+npm install
+npm run all
+```
+
+`npm run all` runs three steps in sequence:
+1. **`tsc`** — compiles TypeScript from `src/` into `lib/`
+2. **`prettier`** — formats all `.ts` files
+3. **`ncc build`** — bundles everything into a single `dist/index.js`
+
+> The `dist/` folder must be committed — it is what the action runtime executes directly.
+
+### Releasing
+
+1. **Raise a PR** from your branch into `main` and wait for the `Build & Test` workflow to pass, then merge.
+
+2. **Pull `main`** and create a new version tag following [semver](https://semver.org/):
+
+```bash
+git checkout main && git pull
+git tag -a vX.Y.Z -m "your release message"
+git push origin vX.Y.Z
+```
+
+3. **Move the floating `v1` tag** so that users pinned to `@v1` get the update automatically:
+
+```bash
+git tag -f v1 vX.Y.Z
+git push origin v1 --force
+```
+
