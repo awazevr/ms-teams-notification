@@ -22,28 +22,29 @@
   ],
   "author": "jdcargile",
   "license": "MIT",
+  "overrides": {
+    "undici": "^7.0.0"
+  },
   "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@octokit/graphql": "^5.0.4",
-    "@octokit/rest": "^19.0.5",
-    "@vercel/ncc": "^0.38.1",
-    "axios": "^1.2.1",
-    "moment-timezone": "^0.5.39-2022f",
-    "octokit": "^2.0.10"
+    "@actions/core": "^1.11.1",
+    "@octokit/graphql": "^9.0.3",
+    "@octokit/rest": "^22.0.1",
+    "@vercel/ncc": "^0.38.4",
+    "axios": "^1.7.0",
+    "moment-timezone": "^0.5.48",
+    "octokit": "^5.0.5"
   },
   "devDependencies": {
-    "@types/jest": "^29.2.4",
-    "@types/moment-timezone": "^0.5.30",
-    "@types/node": "^16.11.7",
-    "@typescript-eslint/parser": "^5.47.0",
-    "eslint": "^8.30.0",
-    "eslint-plugin-github": "^4.6.0",
-    "eslint-plugin-jest": "^27.1.7",
-    "jest": "^24.9.0",
-    "jest-circus": "^29.3.1",
-    "js-yaml": "^3.14.1",
-    "prettier": "^2.8.1",
-    "ts-jest": "^24.3.0",
-    "typescript": "^4.9.4"
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/parser": "^8.59.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-github": "^4.10.2",
+    "eslint-plugin-jest": "^29.15.2",
+    "jest": "^29.7.0",
+    "js-yaml": "^4.1.1",
+    "prettier": "^3.8.3",
+    "ts-jest": "^29.4.9",
+    "typescript": "^5.8.0"
   }
 }
